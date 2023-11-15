@@ -4,12 +4,14 @@ const Sequelize = require('sequelize');
 // const config 안에는 데이터베이스 연결설정 내용을 쓰면 돼요.
 // host는 Lolify의 host 주소로 환경변수에 지정된 값을 불러오거나 없다면 127.0.0.1 을 할당해요.
 // 실제로 배포할 때는 환경변수를 설정해서 실제 mysql 서버로 연결할거에요.
+// LOLIFY_MYSQL_HOST , LOLIFY_MYSQL_PASSWORD 는 환경변수이기 때문에 대문자로 적어줘야 해요.
+// 이것 때문에 에러 났음...
 const config = {
-  host: process.env.lolify_MYSQL_HOST || '127.0.0.1',
+  host: process.env.LOLIFY_MYSQL_HOST || '127.0.0.1',
   port: 3306,
   database: 'lolify',
   user: 'lolify_admin',
-  password: process.env.lolify_MYSQL_PASSWORD || 'Wkd!!51349',
+  password: process.env.LOLIFY_MYSQL_PASSWORD || 'Wkd!!51349',
 };
 
 // mysql 서버는 기본값으로 3306번을 사용해요.

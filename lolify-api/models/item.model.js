@@ -1,4 +1,6 @@
 const { DataTypes } = require('sequelize');
+// DataTypes 오타나면 안돼요.
+// Datatype 이렇게 치면 안돼요. 대문자 소문자 같은 것도 똑같이 해야 해요. 왠만하면 자동완성 ㄱㄱ
 
 module.exports = (sequelize) => {
   return sequelize.define(
@@ -38,7 +40,7 @@ module.exports = (sequelize) => {
         {
           name: 'nameStatDesc',
           unique: true,
-          field: [{ name: 'name' }, { name: 'stat' }, { name: 'desc' }],
+          field: [{ name: 'name' }],
         },
       ],
       tiemstamps: false,

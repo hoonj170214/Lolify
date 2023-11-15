@@ -1,4 +1,4 @@
-const { Datatype } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   return sequelize.define(
@@ -7,32 +7,35 @@ module.exports = (sequelize) => {
       // 속성 목록 : 테이블 컬럼
       id: {
         autoIncrement: true,
-        type: Datatype.INTEGER.UNSIGNED,
+        // 여기서 에러 발생
+        /* Cannot read properties of undefined (reading 'INTEGER')
+    at module.exports (/Users/jangseonghun/Documents/lolifyServer/lolify-api/models/champion.model.js:10:24)*/
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
       },
       champion: {
-        type: Datatype.CHAR(10),
+        type: DataTypes.CHAR(10),
         allowNull: false,
       },
       runes: {
-        type: Datatype.CHAR(10),
+        type: DataTypes.CHAR(10),
         allowNull: false,
       },
       skill: {
-        type: Datatype.CHAR(10),
+        type: DataTypes.CHAR(10),
         allowNull: false,
       },
       spell: {
-        type: Datatype.CHAR(10),
+        type: DataTypes.CHAR(10),
         allowNull: false,
       },
       item: {
-        type: Datatype.CHAR(10),
+        type: DataTypes.CHAR(10),
         allowNull: true,
       },
       stat: {
-        type: Datatype.CHAR(10),
+        type: DataTypes.CHAR(10),
         allowNull: false,
       },
     },
