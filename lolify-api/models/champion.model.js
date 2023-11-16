@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       stat: {
-        type: DataTypes.CHAR(10),
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
       },
     },
@@ -47,7 +47,7 @@ module.exports = (sequelize) => {
         {
           name: 'PRIMARY',
           unique: true,
-          field: [{ name: 'id' }],
+          fields: [{ name: 'id' }],
         },
       ],
       timestamps: false,

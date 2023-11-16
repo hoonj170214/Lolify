@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
+      name: {
+        type: DataTypes.CHAR(10),
+        allowNull: false,
+      },
       // 스탯
       stat: {
         type: DataTypes.INTEGER,
@@ -35,12 +39,7 @@ module.exports = (sequelize) => {
         {
           name: 'PRIMARY',
           unique: true,
-          field: [{ name: 'id' }],
-        },
-        {
-          name: 'nameStatDesc',
-          unique: true,
-          field: [{ name: 'name' }],
+          fields: [{ name: 'id' }],
         },
       ],
       tiemstamps: false,
