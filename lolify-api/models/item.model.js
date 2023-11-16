@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   return sequelize.define(
-    'item',
+    'Item',
     {
       id: {
         autoIncrement: true,
@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      name: {
+      ItemName: {
         type: DataTypes.CHAR(10),
         allowNull: false,
       },
@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
     },
     {
       sequelize,
-      tableName: 'item',
+      tableName: 'Item',
       indexes: [
         {
           name: 'PRIMARY',

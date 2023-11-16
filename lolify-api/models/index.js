@@ -31,6 +31,6 @@ module.exports = {
   // 데이터 베이스 연결이 완료된 객체 모델을 생성해요.
   // champion.js , item.js 를 통해서 모델을 정의해줬어요. 그걸 객체 모델로 생성하는 명령어에요.
   // 추가적인 모델(js 파일)을 만들었으면 밑에다가 이름만 바꿔서 넣어주면 돼요.
-  champion: require('./champion.model')(sequelize),
-  item: require('./item.model')(sequelize),
+  Champion: require('./champion.model')(sequelize),
+  Item: require('./item.model')(sequelize),
 };

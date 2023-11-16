@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   return sequelize.define(
-    'champion', // 모델 이름
+    'Champion', // 모델 이름
     {
       // 속성 목록 : 테이블 컬럼
       id: {
@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      champion: {
+      championName: {
         type: DataTypes.CHAR(10),
         allowNull: false,
       },
@@ -42,7 +42,7 @@ module.exports = (sequelize) => {
     {
       // 추가 옵션
       sequelize,
-      tableName: 'champion',
+      tableName: 'Champion',
       indexes: [
         {
           name: 'PRIMARY',
