@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { sequelize } = require('./models/index');
+const { sequelize, item } = require('./models/index');
+const championController = require('./controllers/champion.controller');
+const itemController = require('./controllers/item.controller');
 
 // 서버를 초기화하고
 // 시작하는 코드를 launchServer 라는 비동기 함수로 감쌌어요.
@@ -8,9 +10,14 @@ async function launchServer() {
   const app = express();
   app.use(bodyParser.json());
 
-  app.get('/', (req, res) => {
-    res.json({ message: 'hello lolify' });
-  });
+  app.get('/champion', championController.getAll);
+  app.get('/item', itemController.getAll);
+
+  app.post('/champion', championController.insertOrUpdate);
+  app.post('./item', itemController.insertOrUpdate);
+
+  app.delete('./champion', championController.remove);
+  app.delete('./item', itemController.remove);
 
   try {
     // sequelize 에 정의된 객체 모델을 기준을 실제 데이터베이스와 동기화를 수행해 테이블을 생성 또는 변경하는 역할을 해요.
