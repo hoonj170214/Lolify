@@ -17,7 +17,6 @@ const crawlingResult = {
   pickRate: '',
   banRate: '',
   count: '',
-  tear: '',
 };
 
 async function main() {
@@ -28,7 +27,11 @@ async function main() {
   /* 
   https://fow.kr/stats 사이트의 데이터를 크롤링해요.
   해당 페이지는 테이블로 되어있었어요. map을 통해서 반복하고 championInfoList에 할당해요.
-
+  챔피언 썸네일, 챔피언이름, 포지션, 승률, 픽률, 밴율, 표본수, 티어를 가져와요.
+  crawlingResult 객체의 속성들에 하나씩 크롤링을 해오는 코드에요.
+  el은 요소 하나하나예요. 그것들을 find라는 cheerio 객체의 메서드로 찾아요.
+  찾는데 td(테이블 데이터)에서 nth-of-type은 몇번째 자식요소를 찾겠는지 설정하는 거에요. 
+  저번에 cheerio 사용해서 크롤링하는 코드 보여드렸죠? 그거랑 똑같은 방식이에요.
   */
   const championInfoList = $('#sort_stats').map((idx, el) => {
     crawlingResult['championThumbnail'] = String(
@@ -42,11 +45,10 @@ async function main() {
     crawlingResult['pickRate'] = String($(el).find('td:nth-of-type(4)').text());
     crawlingResult['banRate'] = String($(el).find('td:nth-of-type(5)').text());
     crawlingResult['count'] = String($(el).find('td:nth-of-type(6)').text());
-    crawlingResult['tear'] = String($(el).find('td:nth-of-type(7)').text());
     console.log(crawlingResult);
   });
-
-  console.log(championInfoList);
+  // 아래코드 주석을 해제하면 가져온 cheerio 객체의 메타 정보가 나와요.
+  // console.log(championInfoList);
 }
 
 main();
